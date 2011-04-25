@@ -1,0 +1,36 @@
+CREATE TABLE `raw` (
+  `LoadID` int(11) NOT NULL AUTO_INCREMENT,
+  `PhaserID` tinytext,
+  `Scorer` text,
+  `RawData` longtext,
+  `Processed` int(2) DEFAULT '0',
+  `LoadTime` datetime NOT NULL,
+  `filename` varchar(50) NOT NULL DEFAULT '',
+  `data_date` date DEFAULT NULL,
+  `record_count` int(11) DEFAULT NULL,
+  PRIMARY KEY (`LoadID`,`filename`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `phenotypes` (
+  `PhenoID` int(11) NOT NULL AUTO_INCREMENT,
+  `ENTITYID` varchar(50) DEFAULT NULL,
+  `entity_id_base` varchar(50) DEFAULT NULL,
+  `TRAITID` varchar(50) DEFAULT NULL,
+  `TRAITNAME` varchar(50) DEFAULT NULL,
+  `TRAITVALUE` varchar(50) DEFAULT NULL,
+  `TRAITDATE` varchar(50) DEFAULT NULL,
+  `SCORER` varchar(50) DEFAULT NULL,
+  `VALSTATUS` varchar(50) DEFAULT NULL,
+  `comment` varchar(75) DEFAULT NULL,
+  `loc` int(11) DEFAULT NULL,
+  `location_prefix` varchar(50) DEFAULT NULL,
+  `year` int(11) DEFAULT '2010',
+  `raw_load_id` int(11) DEFAULT NULL,
+  `trait_value` double(13,5) DEFAULT NULL,
+  `date_trait_value` date DEFAULT NULL,
+  `date_traitdate` date DEFAULT NULL,
+  `deprecation_id` int(11) DEFAULT NULL,
+  `dffits_rstudent` double(13,5) DEFAULT NULL,
+  PRIMARY KEY (`PhenoID`)
+) ENGINE=MyISAM AUTO_INCREMENT=1DEFAULT CHARSET=latin1;
